@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pasapalabra con IA</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<h1>Pasapalabra IA</h1>
+
+			<div class="config-section" id="configSection">
+				<h2>Configuración de API (Opcional)</h2>
+				<p>Introduce tu API Key de OpenAI y el endpoint si deseas generar preguntas en vivo.</p>
+				<p>Si no, se usarán preguntas de ejemplo.</p>
+				<label for="apiKey">OpenAI API Key:</label>
+				<input type="text" id="apiKey" placeholder="sk-..." />
+
+				<label for="apiModel">Modelo OpenAI (ej: gpt-3.5-turbo):</label>
+				<input type="text" id="apiModel" value="gpt-3.5-turbo" />
+
+				<button id="startGameButton">¡Empezar Juego!</button>
+				<p id="loadingMessage" style="display: none">Generando preguntas con IA...</p>
+			</div>
+
+			<div class="game-area" id="gameArea" style="display: none">
+				<div class="rosco-container" id="roscoContainer">
+					<!-- Las letras del rosco se generarán aquí -->
+				</div>
+
+				<div class="question-panel">
+					<div id="timerDisplay">Tiempo: 60s</div>
+					<div id="currentLetterDisplay"></div>
+					<div id="questionDisplay">Cargando pregunta...</div>
+					<input type="text" id="answerInput" placeholder="Escribe tu respuesta" />
+					<div class="buttons">
+						<button id="submitAnswerButton">Responder</button>
+						<button id="pasapalabraButton">Pasapalabra</button>
+					</div>
+				</div>
+
+				<div class="score-panel">Aciertos: <span id="scoreCorrect">0</span> | Fallos: <span id="scoreIncorrect">0</span></div>
+			</div>
+
+			<div class="game-over-screen" id="gameOverScreen" style="display: none">
+				<h2>¡Juego Terminado!</h2>
+				<p>Tu puntuación final:</p>
+				<p>Aciertos: <span id="finalScoreCorrect">0</span></p>
+				<p>Fallos: <span id="finalScoreIncorrect">0</span></p>
+				<button id="restartGameButton">Jugar de Nuevo</button>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>

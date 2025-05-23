@@ -1,0 +1,207 @@
+/* Arreglos para el rosco circular - Corrige el posicionamiento de las letras */
+
+body {
+	font-family: Arial, sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-color: #f0f0f0;
+	margin: 0;
+	color: #333;
+}
+
+.container {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+	text-align: center;
+	width: 90%;
+	max-width: 700px;
+}
+
+/* Config Section */
+.config-section {
+	margin-bottom: 20px;
+}
+.config-section label {
+	display: block;
+	margin-top: 10px;
+	font-weight: bold;
+}
+.config-section input[type='text'] {
+	width: 80%;
+	padding: 8px;
+	margin-top: 5px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+#startGameButton {
+	background-color: #28a745;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 1.2em;
+	margin-top: 20px;
+}
+#startGameButton:hover {
+	background-color: #218838;
+}
+
+.game-area {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+/* CORRECCIÓN: Ajuste del contenedor del rosco */
+.rosco-container {
+	position: relative;
+	width: 400px;
+	height: 400px;
+	margin: 10px auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+}
+
+/* CORRECCIÓN: Ajuste de los elementos de letra */
+.letter-circle {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	font-weight: bold;
+	font-size: 1.1em;
+	border: 2px solid #ccc;
+	background-color: #e0e0e0;
+	transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+	user-select: none;
+	transform: translate(-50%, -50%); /* Centra el elemento en su posición calculada */
+}
+
+/* Estados de las letras */
+.letter-circle.pending {
+	background-color: #e0e0e0;
+	border-color: #c0c0c0;
+}
+.letter-circle.current {
+	background-color: #007bff;
+	color: white;
+	border-color: #0056b3;
+	transform: translate(-50%, -50%) scale(1.1);
+	z-index: 10;
+}
+.letter-circle.correct {
+	background-color: #28a745;
+	color: white;
+	border-color: #1e7e34;
+}
+.letter-circle.incorrect {
+	background-color: #dc3545;
+	color: white;
+	border-color: #b02a37;
+}
+.letter-circle.pasapalabra {
+	background-color: #ffc107;
+	color: #333;
+	border-color: #d39e00;
+}
+
+.question-panel {
+	background-color: #f9f9f9;
+	padding: 20px;
+	border-radius: 8px;
+	border: 1px solid #ddd;
+	width: 100%;
+	box-sizing: border-box;
+	margin-top: 20px;
+}
+
+#timerDisplay {
+	font-size: 1.1em;
+	margin-bottom: 10px;
+	color: #555;
+}
+
+#currentLetterDisplay {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #007bff;
+	margin-bottom: 10px;
+}
+
+#questionDisplay {
+	font-size: 1.1em;
+	margin-bottom: 15px;
+	min-height: 40px; /* Para evitar saltos de layout */
+}
+
+#answerInput {
+	width: calc(100% - 22px); /* Ajuste por padding y borde */
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 1em;
+}
+
+.buttons button {
+	padding: 10px 15px;
+	margin: 0 5px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 1em;
+}
+
+#submitAnswerButton {
+	background-color: #007bff;
+	color: white;
+}
+#submitAnswerButton:hover {
+	background-color: #0056b3;
+}
+#pasapalabraButton {
+	background-color: #ffc107;
+	color: #333;
+}
+#pasapalabraButton:hover {
+	background-color: #e0a800;
+}
+
+.score-panel {
+	margin-top: 20px;
+	font-size: 1.1em;
+}
+
+/* Game Over Screen */
+.game-over-screen {
+	padding: 30px;
+	border: 2px solid #007bff;
+	border-radius: 10px;
+}
+.game-over-screen h2 {
+	color: #007bff;
+}
+#restartGameButton {
+	background-color: #007bff;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 1.1em;
+	margin-top: 15px;
+}
+#restartGameButton:hover {
+	background-color: #0056b3;
+}
